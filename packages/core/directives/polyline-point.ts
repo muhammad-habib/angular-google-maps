@@ -27,8 +27,8 @@ export class AgmPolylinePoint implements OnChanges {
   ngOnChanges(changes: SimpleChanges): any {
     if (changes['latitude'] || changes['longitude']) {
       const position: LatLngLiteral = <LatLngLiteral>{
-        lat: changes['latitude'].currentValue,
-        lng: changes['longitude'].currentValue
+        lat: changes['latitude'] ? changes['latitude'].currentValue : null, 
+        lng: changes['longitude'] ? changes['longitude'].currentValue : null
       };
       this.positionChanged.emit(position);
     }
